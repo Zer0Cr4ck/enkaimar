@@ -1,0 +1,1447 @@
+/* ==========================================================================
+   ENKAIMAR E.I.R.L. — Basado en el Diseño de Referencia OLIGA (TM #441351)
+   Paleta Industrial: Blanco (#ffffff), Carbón (#222222), Naranja (#f06423)
+   Tipografía: Rajdhani (Títulos) + Roboto (Cuerpo)
+   ========================================================================== */
+
+:root {
+  --brcolor: #f06423;           /* Oliga Brand Orange */
+  --brhovercolor: #222222;      /* Oliga Dark Hover */
+  --brrgb: 240, 100, 35;
+  --bropacity: rgba(240, 100, 35, 0.85);
+  --black: #000000;
+  --white: #ffffff;
+  --light-bg: #f7f8fa;
+  --bdcolor: #dddddd;
+  --bdhcolor: #f06423;
+  --titlecolor: #222222;
+  --pracolor: #444444;
+  --bshadow: 0px 8px 30px rgba(0, 0, 0, 0.07);
+  --font-heading: 'Rajdhani', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--pracolor);
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--titlecolor);
+  margin: 0 0 12px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.35s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.orange-text {
+  color: var(--brcolor);
+}
+
+.underline-orange {
+  color: var(--brcolor);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION (Exact Oliga Top Header + Right Orange Drawer Box)
+   ========================================================================== */
+.oliga-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: var(--white);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.header-main-bar {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  min-height: 92px;
+  padding-left: 30px;
+}
+
+/* Brand Logo Lockup like OLIGA. */
+.oliga-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.logo-barrel {
+  width: 48px;
+  height: 54px;
+  background: var(--brcolor);
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 4px 0 rgba(0,0,0,0.18), inset 0 -4px 0 rgba(0,0,0,0.18);
+  flex-shrink: 0;
+}
+
+.logo-barrel::before,
+.logo-barrel::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  height: 3px;
+  background: #ff9f43;
+}
+.logo-barrel::before { top: 12px; }
+.logo-barrel::after { bottom: 12px; }
+
+.logo-barrel-emblem {
+  width: 28px;
+  height: 28px;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--titlecolor);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 14px;
+  z-index: 1;
+}
+
+.logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-family: var(--font-heading);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0.5px;
+  color: var(--titlecolor);
+}
+
+.logo-title .first-letter {
+  color: var(--brcolor);
+}
+
+.logo-title .dot {
+  color: var(--brcolor);
+}
+
+.logo-subtitle {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--titlecolor);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.logo-subtitle span {
+  color: var(--brcolor);
+}
+
+/* Main Menu */
+.oliga-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.oliga-nav a {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--titlecolor);
+  position: relative;
+  padding: 8px 0;
+  white-space: nowrap;
+}
+
+.oliga-nav a:hover,
+.oliga-nav a.active {
+  color: var(--brcolor);
+}
+
+/* Right Header Actions (Socials + Emergency/RUC + Orange Drawer Button) */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.header-socials {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.social-sq {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--bdcolor);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--titlecolor);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.social-sq:hover,
+.social-sq.highlight {
+  background: var(--brcolor);
+  border-color: var(--brcolor);
+  color: var(--white);
+}
+
+.header-emergency {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 8px;
+}
+
+.emergency-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px dashed var(--brcolor);
+  color: var(--brcolor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emergency-text p {
+  font-size: 12px;
+  color: var(--brcolor);
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.emergency-text strong {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  color: var(--titlecolor);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.header-drawer-btn {
+  width: 92px;
+  height: 100%;
+  min-height: 92px;
+  background: var(--brcolor);
+  border: none;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.header-drawer-btn:hover {
+  background: var(--titlecolor);
+}
+
+.header-drawer-btn span {
+  width: 28px;
+  height: 2.5px;
+  background: var(--white);
+  display: block;
+}
+
+.header-drawer-btn span:nth-child(2) {
+  width: 20px;
+}
+
+/* ==========================================================================
+   HERO SLIDER SECTION (Exact Oliga Full-Screen Industrial Banner)
+   ========================================================================== */
+.oliga-hero {
+  position: relative;
+  min-height: 670px;
+  display: flex;
+  align-items: center;
+  background-color: #1a2129;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Diagonal split overlay matching Oliga preview */
+.oliga-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, rgba(18, 25, 33, 0.82) 0%, rgba(18, 25, 33, 0.65) 48%, rgba(18, 25, 33, 0.35) 48.1%, rgba(18, 25, 33, 0.55) 100%);
+  z-index: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 90px 30px;
+}
+
+.hero-eyebrow {
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.hero-main-title {
+  font-family: var(--font-heading);
+  font-size: clamp(46px, 7.5vw, 96px);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 0.98;
+  text-shadow: 6px 0px 0px #000000;
+  margin-bottom: 22px;
+}
+
+.hero-main-title .amp {
+  color: var(--brcolor);
+}
+
+.hero-desc {
+  color: var(--white);
+  font-size: 17px;
+  max-width: 660px;
+  margin-bottom: 34px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+.hero-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btn-oliga {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 15px 36px;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  border: 1px solid var(--brcolor);
+  background: var(--brcolor);
+  color: var(--white);
+}
+
+.btn-oliga:hover {
+  background: var(--titlecolor);
+  border-color: var(--titlecolor);
+  color: var(--white);
+}
+
+.btn-oliga-outline {
+  background: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+}
+
+.btn-oliga-outline:hover {
+  background: var(--brcolor);
+  border-color: var(--brcolor);
+  color: var(--white);
+}
+
+/* Right Slider Controls like Oliga */
+.hero-slider-arrows {
+  position: absolute;
+  right: 30px;
+  bottom: 50%;
+  transform: translateY(50%);
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+}
+
+.slider-arrow {
+  width: 48px;
+  height: 48px;
+  background: var(--brcolor);
+  color: var(--white);
+  border: 1px solid var(--brcolor);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-arrow.outline {
+  background: rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.slider-arrow:hover {
+  background: var(--titlecolor);
+  border-color: var(--titlecolor);
+}
+
+/* ==========================================================================
+   SECTION 2: 4 FEATURE BOXES (Exact Oliga 7px bottom border hover effect)
+   ========================================================================== */
+.features-strip {
+  padding: 90px 0 60px;
+  background: var(--white);
+  position: relative;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.feature-box {
+  background: var(--white);
+  padding: 28px 20px 26px;
+  text-align: center;
+  border-bottom: 7px solid var(--titlecolor);
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.feature-box:hover,
+.feature-box.active {
+  border-bottom-color: var(--brcolor);
+  transform: translateY(-4px);
+}
+
+.feature-icon-wrap {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon-wrap img {
+  max-height: 64px;
+  width: auto;
+}
+
+.feature-box h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.feature-box:hover h3,
+.feature-box.active h3 {
+  color: var(--brcolor);
+}
+
+.feature-box p {
+  font-size: 14px;
+  color: #666666;
+}
+
+/* ==========================================================================
+   SECTION 3: ABOUT / HISTORY & MISSION (2-Column Oliga Layout)
+   ========================================================================== */
+.about-oliga {
+  padding: 50px 0 95px;
+  background: var(--white);
+  position: relative;
+}
+
+.about-oliga-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.oliga-sub-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--brcolor);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.oliga-sec-title {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 3.6vw, 46px);
+  font-weight: 700;
+  line-height: 1.12;
+  color: var(--titlecolor);
+  margin-bottom: 24px;
+}
+
+.ceo-profile-block {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #eeeeee;
+}
+
+.ceo-avatar {
+  width: 74px;
+  height: 74px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid var(--brcolor);
+  flex-shrink: 0;
+}
+
+.ceo-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ceo-meta h4 {
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+
+.ceo-meta span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brcolor);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.about-right-text p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #444444;
+  line-height: 1.75;
+}
+
+.ruc-credentials-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+  background: var(--light-bg);
+  padding: 18px;
+  border-left: 4px solid var(--brcolor);
+}
+
+.ruc-cred-item small {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #777;
+  font-weight: 600;
+}
+
+.ruc-cred-item strong {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  color: var(--titlecolor);
+}
+
+/* ==========================================================================
+   SECTION 4: "THE SERVICES WE LEAD" (Centered Heading + 4 Cards Grid)
+   ========================================================================== */
+.services-oliga {
+  padding: 90px 0 95px;
+  background: var(--light-bg);
+}
+
+.sec-header-center {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 50px;
+}
+
+.sec-header-center .big-title {
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 4.8vw, 62px);
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+/* Filter Pills for Interactive Mineral Catalog */
+.oliga-filter-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 38px;
+}
+
+.oliga-filter-btn {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  background: var(--white);
+  color: var(--titlecolor);
+  border: 1px solid var(--bdcolor);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.oliga-filter-btn:hover,
+.oliga-filter-btn.active {
+  background: var(--brcolor);
+  color: var(--white);
+  border-color: var(--brcolor);
+}
+
+.services-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+
+.oliga-service-card {
+  background: var(--white);
+  box-shadow: var(--bshadow);
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 4px solid transparent;
+}
+
+.oliga-service-card:hover {
+  transform: translateY(-6px);
+  border-bottom-color: var(--brcolor);
+}
+
+.service-img-wrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.service-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.oliga-service-card:hover .service-img-wrap img {
+  transform: scale(1.07);
+}
+
+.mineral-grade-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--brcolor);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 4px 12px;
+  text-transform: uppercase;
+}
+
+.mineral-hs-tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(34, 34, 34, 0.9);
+  color: var(--white);
+  font-size: 12px;
+  padding: 4px 12px;
+  font-weight: 500;
+}
+
+.service-card-body {
+  padding: 24px 20px 26px;
+  text-align: center;
+}
+
+.service-card-body h3 {
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.service-card-body h3:hover {
+  color: var(--brcolor);
+}
+
+.service-card-body p {
+  font-size: 14.5px;
+  color: #555555;
+  margin-bottom: 16px;
+}
+
+.service-specs-pill {
+  background: var(--light-bg);
+  padding: 8px 12px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--brcolor);
+  text-align: left;
+}
+
+.read-more-oliga {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--brcolor);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.read-more-oliga:hover {
+  color: var(--titlecolor);
+}
+
+/* ==========================================================================
+   SECTION 5: EXPERIENCE + 4 LARGE ORANGE COUNTERS (23K, 150+, 27Y, 97% style)
+   ========================================================================== */
+.counters-oliga {
+  padding: 90px 0 80px;
+  background: var(--white);
+  border-bottom: 1px solid #eeeeee;
+}
+
+.exp-top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.exp-check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.exp-check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--titlecolor);
+  font-weight: 500;
+}
+
+.check-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #10b981;
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.counters-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding-top: 40px;
+  border-top: 1px solid #eaeaea;
+}
+
+.counter-item h4 {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--titlecolor);
+  margin-bottom: 4px;
+}
+
+.counter-item h4 span {
+  color: #777777;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.counter-number {
+  font-family: var(--font-heading);
+  font-size: clamp(44px, 5vw, 68px);
+  font-weight: 700;
+  color: var(--brcolor);
+  line-height: 1;
+}
+
+/* ==========================================================================
+   SECTION 6: VIDEO / CALL TO ACTION BANNER ("Why we are the best...")
+   ========================================================================== */
+.why-best-banner {
+  position: relative;
+  min-height: 460px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.why-best-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(15, 20, 26, 0.88) 0%, rgba(15, 20, 26, 0.65) 55%, rgba(15, 20, 26, 0.25) 100%);
+}
+
+.why-best-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 40px;
+}
+
+.why-best-box {
+  max-width: 580px;
+  color: var(--white);
+}
+
+.why-best-box span {
+  display: block;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: var(--brcolor);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.why-best-box h2 {
+  color: var(--white);
+  font-size: clamp(34px, 4vw, 52px);
+  margin-bottom: 24px;
+}
+
+.video-play-trigger {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  background: rgba(240, 100, 35, 0.85);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+.video-play-trigger:hover {
+  background: var(--brcolor);
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   SECTION 7: RUNNING PROJECTS / MINERAL EXPORT SPECIFICATIONS LIST
+   ("Oliga running projects details is here now.")
+   ========================================================================== */
+.projects-oliga {
+  padding: 95px 0;
+  background: var(--white);
+}
+
+.projects-split {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 54px;
+  align-items: start;
+}
+
+.project-list-items {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-list-row {
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--bdcolor);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.project-list-row:hover,
+.project-list-row.active {
+  background: var(--light-bg);
+  border-left: 4px solid var(--brcolor);
+  padding-left: 20px;
+}
+
+.project-list-row h4 {
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+
+.project-list-row:hover h4,
+.project-list-row.active h4 {
+  color: var(--brcolor);
+}
+
+.project-list-row p {
+  font-size: 13.5px;
+  color: #777777;
+}
+
+.project-list-arrow {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--brcolor);
+}
+
+.projects-right-showcase p {
+  margin-bottom: 26px;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.projects-dual-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.project-photo-card {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 5px solid var(--brcolor);
+}
+
+.project-photo-card img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+}
+
+.project-photo-caption {
+  padding: 16px;
+  background: var(--light-bg);
+}
+
+.project-photo-caption h5 {
+  font-size: 19px;
+  margin-bottom: 4px;
+}
+
+.project-photo-caption span {
+  font-size: 13px;
+  color: var(--brcolor);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SECTION 8: "MEET OUR TEAM MEMBERS" / CORPORATE DIVISIONS & EMAILS
+   ========================================================================== */
+.team-oliga {
+  padding: 90px 0;
+  background: var(--light-bg);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+
+.team-card {
+  background: var(--white);
+  box-shadow: var(--bshadow);
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  border-bottom: 4px solid var(--titlecolor);
+}
+
+.team-card:hover {
+  border-bottom-color: var(--brcolor);
+  transform: translateY(-5px);
+}
+
+.team-img-box {
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.team-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-info {
+  padding: 20px 16px;
+}
+
+.team-info h3 {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.team-info span {
+  display: block;
+  font-size: 13px;
+  color: var(--brcolor);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.team-email-pill {
+  display: inline-block;
+  background: var(--light-bg);
+  padding: 5px 12px;
+  font-size: 13px;
+  color: var(--titlecolor);
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+}
+
+.team-card:hover .team-email-pill {
+  background: var(--brcolor);
+  color: var(--white);
+  border-color: var(--brcolor);
+}
+
+/* ==========================================================================
+   SECTION 9: FAQ OVERLAY + B2B RFQ FORM (Exact Oliga Bottom Split)
+   ========================================================================== */
+.faq-contact-oliga {
+  padding: 95px 0;
+  background: var(--white);
+}
+
+.faq-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: stretch;
+}
+
+.faq-visual-box {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 520px;
+  padding: 44px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.faq-visual-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 20, 26, 0.35) 0%, rgba(15, 20, 26, 0.92) 70%);
+}
+
+.faq-accordion-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 14px 0;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-question:hover,
+.faq-item.open .faq-question {
+  color: var(--brcolor);
+}
+
+.faq-answer {
+  display: none;
+  padding-top: 8px;
+  color: #e2e8f0;
+  font-size: 14.5px;
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+/* Contact / RFQ Form Box */
+.oliga-form-box {
+  background: var(--light-bg);
+  padding: 42px 38px;
+  border-top: 6px solid var(--brcolor);
+  box-shadow: var(--bshadow);
+}
+
+.oliga-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.oliga-field {
+  margin-bottom: 16px;
+}
+
+.oliga-field label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--titlecolor);
+  margin-bottom: 5px;
+}
+
+.oliga-field input,
+.oliga-field select,
+.oliga-field textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--bdcolor);
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--titlecolor);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.oliga-field input:focus,
+.oliga-field select:focus,
+.oliga-field textarea:focus {
+  border-color: var(--brcolor);
+}
+
+.rfq-result-box {
+  margin-top: 18px;
+  padding: 16px;
+  background: #ecfdf5;
+  border-left: 4px solid #10b981;
+  color: #065f46;
+  font-size: 14.5px;
+}
+
+/* ==========================================================================
+   FOOTER (Oliga 4-Column Dark Industrial Footer + Gallery)
+   ========================================================================== */
+.oliga-footer {
+  background-color: #16191e;
+  background-size: cover;
+  background-position: center;
+  color: #d1d5db;
+  padding: 80px 0 0;
+  position: relative;
+}
+
+.oliga-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 20, 25, 0.93);
+}
+
+.footer-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr 0.9fr 1.1fr;
+  gap: 36px;
+  padding-bottom: 60px;
+}
+
+.footer-widget h3 {
+  color: var(--white);
+  font-size: 24px;
+  margin-bottom: 22px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-widget h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 45px;
+  height: 3px;
+  background: var(--brcolor);
+}
+
+.footer-widget p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: #d1d5db;
+  font-size: 15px;
+}
+
+.footer-links a:hover {
+  color: var(--brcolor);
+  padding-left: 5px;
+}
+
+.footer-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.footer-gallery img {
+  width: 100%;
+  height: 70px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.footer-copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 14px;
+}
+
+/* ==========================================================================
+   MODAL FICHA TÉCNICA
+   ========================================================================== */
+.oliga-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.oliga-modal-backdrop.hidden {
+  display: none !important;
+}
+
+.oliga-modal {
+  background: var(--white);
+  width: 100%;
+  max-width: 740px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-top: 6px solid var(--brcolor);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+.oliga-modal-head {
+  padding: 22px 28px;
+  background: var(--light-bg);
+  border-bottom: 1px solid var(--bdcolor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.oliga-modal-close {
+  width: 36px;
+  height: 36px;
+  background: var(--titlecolor);
+  color: var(--white);
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.oliga-modal-close:hover {
+  background: var(--brcolor);
+}
+
+.oliga-modal-body {
+  padding: 26px 28px;
+}
+
+.oliga-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+
+.oliga-spec-table th,
+.oliga-spec-table td {
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+  font-size: 14.5px;
+}
+
+.oliga-spec-table th {
+  background: var(--light-bg);
+  color: var(--titlecolor);
+  font-weight: 600;
+  width: 42%;
+}
+
+.oliga-modal-foot {
+  padding: 16px 28px;
+  background: var(--light-bg);
+  border-top: 1px solid var(--bdcolor);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .features-grid,
+  .services-cards-grid,
+  .team-grid,
+  .counters-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-oliga-grid,
+  .exp-top-grid,
+  .projects-split,
+  .faq-contact-grid,
+  .footer-cols {
+    grid-template-columns: 1fr;
+  }
+  .oliga-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .features-grid,
+  .services-cards-grid,
+  .team-grid,
+  .counters-row,
+  .projects-dual-images,
+  .oliga-form-grid,
+  .ruc-credentials-strip {
+    grid-template-columns: 1fr;
+  }
+  .header-socials,
+  .header-emergency {
+    display: none;
+  }
+  .header-main-bar {
+    padding-left: 15px;
+  }
+}
